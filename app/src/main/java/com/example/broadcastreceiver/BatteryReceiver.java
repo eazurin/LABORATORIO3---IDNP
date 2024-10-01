@@ -17,17 +17,13 @@ public class BatteryReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
         int level = intent.getIntExtra("level", -1);
         int scale = intent.getIntExtra("scale", -1);
 
-
         int batteryPct = (int) ((level / (float) scale) * 100);
-
 
         batteryStatusTextView.setText("Estado de la batería: " + batteryPct + "%");
 
-       
         Log.d(TAG, "Nivel de batería recibido: " + batteryPct + "%");
     }
 }
